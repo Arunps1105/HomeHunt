@@ -1,0 +1,567 @@
+/* EditHouse.module.css - Light Theme */
+
+/* Main Container */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Pattern Overlay */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.03) 0%, transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.03) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+/* Soft Floating Orbs */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+  top: -250px;
+  right: -250px;
+  border-radius: 50%;
+  animation: orbFloat 20s infinite ease-in-out;
+}
+
+@keyframes orbFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-50px, 50px) scale(1.1);
+  }
+}
+
+/* Form Card - Light Design */
+.formCard {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  animation: fadeInUp 0.6s ease-out;
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle Border Accent */
+.formCard::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px dashed #e2e8f0;
+  border-radius: 18px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.header h2 {
+  font-size: 32px;
+  color: #1e293b;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Gradient Underline */
+.header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 2px;
+}
+
+.header p {
+  font-size: 15px;
+  color: #64748b;
+  margin: 15px 0 0;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.header p span {
+  color: #6366f1;
+  font-weight: 600;
+  background: #eef2ff;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 13px;
+}
+
+/* House ID Badge */
+.houseIdBadge {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  background: #eef2ff;
+  color: #6366f1;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.1);
+  border: 1px solid #c7d2fe;
+}
+
+.houseIdBadge span {
+  background: white;
+  color: #6366f1;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-left: 8px;
+  font-weight: 700;
+  border: 1px solid #c7d2fe;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Groups */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 5px;
+}
+
+/* Label Icons */
+.formGroup:first-child label::before {
+  content: '📝';
+  font-size: 14px;
+}
+
+.formGroup:nth-child(2) label::before {
+  content: '💰';
+  font-size: 14px;
+}
+
+/* Input Fields */
+.input {
+  padding: 14px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  background: #f8fafc;
+  color: #1e293b;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.input:hover {
+  border-color: #c7d2fe;
+  background: white;
+}
+
+.input:focus {
+  border-color: #6366f1;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Textarea specific */
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Price Input with Currency Symbol */
+.priceInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currencySymbol {
+  position: absolute;
+  left: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6366f1;
+}
+
+.priceInput {
+  padding-left: 40px;
+}
+
+/* Helper Text */
+.helperText {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 4px;
+  margin-left: 5px;
+  font-style: italic;
+}
+
+/* Button Group */
+.buttonGroup {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* Submit Button */
+.submitBtn {
+  flex: 2;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+.submitBtn::after {
+  content: '→';
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.submitBtn:hover::after {
+  transform: translateX(5px);
+}
+
+/* Cancel Button */
+.cancelBtn {
+  flex: 1;
+  padding: 14px 20px;
+  background: white;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.cancelBtn:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+}
+
+.cancelBtn:active {
+  transform: translateY(0);
+}
+
+.cancelBtn::after {
+  content: '✕';
+  font-size: 14px;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-size: 15px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.loading::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #e2e8f0;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 0.8s infinite linear;
+  margin: 15px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error State */
+.error {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  color: #1e293b;
+  font-size: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #fee2e2;
+}
+
+.error::before {
+  content: '⚠️';
+  display: block;
+  font-size: 40px;
+  color: #ef4444;
+  margin-bottom: 15px;
+}
+
+/* Success Message */
+.successMessage {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: #10b981;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 500;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  animation: slideInRight 0.4s ease-out;
+  z-index: 1000;
+  font-size: 14px;
+  border: 1px solid #d1fae5;
+}
+
+.successMessage::before {
+  content: '✓';
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .formCard {
+    padding: 30px;
+    margin: 15px;
+  }
+
+  .header h2 {
+    font-size: 28px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    width: 100%;
+  }
+
+  .houseIdBadge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .formCard {
+    padding: 20px;
+  }
+
+  .header h2 {
+    font-size: 24px;
+  }
+
+  .input {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .submitBtn {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .cancelBtn {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+/* Custom Scrollbar */
+.input::-webkit-scrollbar {
+  width: 6px;
+}
+
+.input::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.input::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.input::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Selection Style */
+.input::selection {
+  background: rgba(99, 102, 241, 0.1);
+  color: #1e293b;
+}
+
+/* Additional Fields Section (if needed) */
+.sectionTitle {
+  font-size: 16px;
+  color: #1e293b;
+  font-weight: 600;
+  margin: 15px 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sectionTitle::before {
+  content: '•';
+  color: #6366f1;
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Select Dropdown Styling */
+.select {
+  padding: 14px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #f8fafc;
+  color: #1e293b;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+
+.select:hover {
+  border-color: #c7d2fe;
+  background: white;
+}
+
+.select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Row Layout for Multiple Fields */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}

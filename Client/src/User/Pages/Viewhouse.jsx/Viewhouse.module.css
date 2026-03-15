@@ -1,0 +1,608 @@
+.container {
+  min-height: 100vh;
+  padding: 110px 60px 60px 60px;
+  /* serene light blue gradient — like fresh sky & calm water */
+  background: radial-gradient(circle at 10% 30%, #e6f0fa, #d4e6f2);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+}
+
+/* delicate wave orbs — subtle interior decoration */
+.container::before {
+  content: '';
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(173, 216, 230, 0.25) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.container::after {
+  content: '';
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(145, 202, 225, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ELEGANT TITLE WITH AQUA ACCENT */
+.title {
+  font-size: 2.6rem;
+  font-weight: 550;
+  margin-bottom: 3rem;
+  color: #1e3b4f;
+  letter-spacing: -0.01em;
+  position: relative;
+  display: inline-block;
+  z-index: 3;
+  text-shadow: 0 2px 6px rgba(115, 185, 215, 0.12);
+}
+.title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -14px;
+  width: 100px;
+  height: 6px;
+  background: linear-gradient(95deg, #6ab0d6, #9ac9e0);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(90, 169, 206, 0.3);
+}
+.title::before {
+  content: '🏡 ✦';
+  font-size: 1.2rem;
+  color: #4f8da8;
+  margin-right: 12px;
+  font-weight: 300;
+  opacity: 0.8;
+  letter-spacing: 6px;
+}
+
+/* REFINED GRID — BREATHES SERENITY */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 44px 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* CARD – ICE GLASS WITH BLUE TINTS */
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 18px 36px -12px rgba(55, 95, 115, 0.12), 0 4px 18px rgba(0, 20, 30, 0.02);
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* interior decor : little floating blue gem on each card */
+.card::after {
+  content: '✦';
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-size: 20px;
+  color: rgba(100, 175, 205, 0.25);
+  font-weight: 300;
+  z-index: 2;
+  transition: 0.2s;
+}
+.card:hover::after {
+  color: rgba(70, 150, 185, 0.6);
+  transform: rotate(10deg) scale(1.1);
+}
+
+.card:hover {
+  background: white;
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 32px 52px -16px rgba(55, 105, 135, 0.2), 0 8px 22px rgba(0,30,40,0.02);
+  border-color: rgba(255,255,255,0.9);
+}
+
+/* IMAGE WRAP – SOFT CORNERS, GENTLE OVERLAY */
+.imageWrapper {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+  margin: 12px 12px 0 12px;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+  border-radius: 24px 24px 0 0;
+}
+
+.card:hover .imageWrapper img {
+  transform: scale(1.08);
+}
+
+/* HEART – FROSTED AQUA */
+.heart {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-size: 1.4rem;
+  color: #5c8ca3;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+
+.heart:hover {
+  background: white;
+  transform: scale(1.12);
+  color: #3687a5;
+  box-shadow: 0 12px 28px rgba(80, 170, 200, 0.2);
+  border-color: rgba(180, 220, 240, 0.9);
+}
+
+.active {
+  color: #2c6e8f !important;
+  background: white;
+  border-color: rgba(130, 200, 230, 0.8);
+  text-shadow: 0 0 6px rgba(70, 150, 200, 0.25);
+}
+
+/* CONTENT – AIRY & LIGHT */
+.content {
+  padding: 26px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(235, 245, 250, 0.3) 100%);
+  position: relative;
+}
+
+/* interior detail: tiny blue dash accent on content */
+.content::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 6px;
+  height: 50px;
+  background: linear-gradient(to bottom, #9ac9e0, #c0e0ed);
+  border-radius: 0 4px 4px 0;
+  opacity: 0.5;
+}
+
+/* BHK – DEEP BLUE, SERENE */
+.name {
+  font-size: 1.65rem;
+  font-weight: 520;
+  color: #1f4a5c;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  font-family: 'Inter', 'SF Pro Display', serif;
+}
+
+/* LOCATION – FROST PILL WITH BLUE HINT */
+.location {
+  font-size: 0.95rem;
+  color: #426f82;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: -2px;
+  font-weight: 400;
+  background: rgba(205, 225, 240, 0.4);
+  padding: 6px 16px;
+  border-radius: 50px;
+  width: fit-content;
+  backdrop-filter: blur(2px);
+  border: 0.5px solid rgba(150, 200, 220, 0.3);
+}
+
+.location svg {
+  color: #619bb3;
+  font-size: 1.1rem;
+}
+
+/* DESCRIPTION – SOFT BLUE BORDER, CALM TEXT */
+.description {
+  font-size: 0.95rem;
+  color: #3a5a66;
+  line-height: 1.6;
+  font-weight: 350;
+  margin-top: 8px;
+  border-left: 3px solid #aacde2;
+  padding-left: 18px;
+  font-style: normal;
+  letter-spacing: 0.01em;
+}
+
+/* DETAILS PILLS — FROSTED GLASS, BLUE REFLECTIONS */
+.details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.86rem;
+  margin-top: 18px;
+  color: #2e5768;
+  background: rgba(215, 233, 245, 0.5);
+  padding: 14px 20px;
+  border-radius: 60px;
+  backdrop-filter: blur(4px);
+  border: 0.5px solid rgba(255, 255, 255, 0.8);
+  font-weight: 430;
+  box-shadow: inset 0 1px 4px rgba(255,255,255,0.8);
+}
+
+.details span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.details strong {
+  font-weight: 600;
+  color: #2d687d;
+  font-size: 0.8rem;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* PRICE – OCEAN BLUE ELEGANCE */
+.price {
+  margin-top: 20px;
+  font-size: 2rem;
+  font-weight: 550;
+  color: #367f96;
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  border-bottom: 1.5px dashed rgba(100, 170, 200, 0.3);
+  padding-bottom: 8px;
+  transition: 0.2s;
+}
+
+.price span {
+  font-size: 1rem;
+  font-weight: 340;
+  color: #588e9e;
+  margin-left: 8px;
+  font-feature-settings: "tnum";
+}
+
+/* EMPTY STATE — BEAUTIFULLY MINIMAL, BLUE WHISPER */
+.noData {
+  font-size: 1.25rem;
+  color: #437482;
+  background: rgba(235, 248, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 44px 70px;
+  border-radius: 120px;
+  text-align: center;
+  width: fit-content;
+  margin: 60px auto;
+  border: 1px solid rgba(190, 225, 240, 0.8);
+  font-weight: 380;
+  box-shadow: 0 12px 30px rgba(80, 140, 170, 0.06);
+  position: relative;
+  z-index: 5;
+}
+.noData::before {
+  content: '🌊 ⋆｡°✩';
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #6faec7;
+  letter-spacing: 12px;
+}
+
+/* subtle hover on price — tranquil */
+.price:hover {
+  color: #2c7185;
+  border-bottom-color: rgba(70, 150, 185, 0.6);
+}
+
+/* RESPONSIVE TOUCH */
+@media (max-width: 700px) {
+  .container {
+    padding: 100px 28px 50px;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .grid {
+    gap: 32px;
+  }
+  .card {
+    border-radius: 28px;
+  }
+  .content {
+    padding: 22px 20px;
+  }
+  .name {
+    font-size: 1.5rem;
+  }
+  .price {
+    font-size: 1.8rem;
+  }
+}
+
+/* FONTS: ensure Inter is available */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;350;400;500;550;600;700&display=swap');
+
+/* card border glassier on blue */
+.card {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* price / month elegance */
+.price span {
+  opacity: 0.75;
+}
+
+/* extra interior design: wave line under grid */
+.grid::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b1d7e3, transparent);
+  margin-top: 40px;
+  opacity: 0.4;
+}
+.gallerySection {
+  margin-top: 40px;
+  text-align: center;
+}
+/* ===== FILTER SECTION ===== */
+
+.filterSection {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 25px 0 35px 0;
+  flex-wrap: wrap;
+}
+.mapCard {
+  width: 150px;          /* 🔥 smaller width */
+  padding: 6px;
+  text-align: left;
+}
+
+.mapImage {
+  width: 100%;
+  height: 70px;          /* 🔥 smaller image */
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.mapTitle {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+.mapPrice {
+  font-size: 13px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 2px 0;
+}
+
+.mapPlace {
+  font-size: 12px;
+  color: gray;
+  margin: 0;
+}
+/* FORCE smaller popup width */
+.leaflet-popup-content-wrapper {
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 220px !important;   /* control max width */
+  padding: 6px !important;
+  border-radius: 14px;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+}
+
+/* remove extra white space */
+.leaflet-popup-tip {
+  width: 12px;
+  height: 12px;
+}
+.leaflet-popup-content {
+  margin: 6px 8px;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+}
+.clearBtn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.clearBtn:hover {
+  background: #e60000;
+}
+
+/* Dropdown styling */
+.filterSection select {
+  padding: 10px 14px;
+  min-width: 160px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: white;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.filterSection select:hover {
+  border-color: #000;
+}
+
+/* Focus */
+.filterSection select:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Optional: smooth dropdown arrow */
+.filterSection select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+}
+.filterSection input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 140px;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .filterSection {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterSection select {
+    width: 100%;
+  }
+}
+.galleryBtn {
+  padding: 14px 36px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+}
+
+.galleryBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(79, 70, 229, 0.6);
+}
+/* 🔥 HEART MUST BE ON TOP */
+/* ===== HEART CLICK FIX ===== */
+.heart {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;          /* ABSOLUTE TOP */
+  pointer-events: auto;
+  background: white;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.redHeart {
+  color: red;
+  font-size: 1.6rem;
+}
+
+/* liked */
+.active {
+  color: red;
+}
+
+/* disable click blocking layers */
+.card::before,
+.card::after,
+.container::before,
+.container::after {
+  pointer-events: none;
+}
+
+
+/* Safety */
+.imageWrapper {
+  position: relative;
+  z-index: 5;
+}
+/* Map/Grid toggle button */
+.viewToggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  border: 1.5px solid #d1d5db;
+  background: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.viewToggleBtn:hover {
+  background: #1d4ed8;
+  color: white;
+  border-color: #1d4ed8;
+}
+
+/* Empty state */
+.emptyState {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 60px 0;
+  color: #9ca3af;
+}
+
+/* Skeleton pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+

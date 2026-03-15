@@ -1,0 +1,101 @@
+.page {
+    margin-top: 80px;
+    margin-left: 280px;
+    padding: 25px;
+    background: #f4f6fb;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.deleteBtn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.deleteBtn:hover {
+    background: #c40000;
+}
+
+.chatList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chatCard {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.chatCard:hover {
+    transform: translateY(-2px);
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.chatInfo {
+    flex: 1;
+}
+
+.userName {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.newMessage {
+    color: #ff3b3b;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.houseDetails {
+    font-size: 13px;
+    color: #666;
+    margin-top: 3px;
+}
+
+.houseImage{
+    width:80px;
+    height:55px;
+    min-width:80px;   /* IMPORTANT */
+    border-radius:8px;
+    object-fit:cover;
+}
+
+.empty {
+    color: #888;
+    font-size: 14px;
+}
+.avatar{
+    width:50px;
+    height:50px;
+    min-width:50px;   /* IMPORTANT */
+    border-radius:50%;
+    object-fit:cover;
+}

@@ -1,0 +1,361 @@
+/* Registration.module.css */
+
+/* ===== BACKGROUND ===== */
+.background {
+  min-height: 100vh;
+  background-image: url("/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 78px;
+  position: relative;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+
+.background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  z-index: 0;
+}
+
+/* ===== GLASS WRAPPER ===== */
+.wrapper {
+  display: flex;
+  max-width: 900px;
+  width: 90%;
+  min-height: 540px;
+
+  background: rgba(245, 246, 246, 0.22);
+  border-radius: 24px;
+  overflow: hidden;
+
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.25));
+  opacity: 0.6;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+
+/* ===== LEFT PANEL ===== */
+/* ===== LEFT PANEL (Luxury Glass) ===== */
+.leftPanel {
+  flex: 1;
+  padding: 44px 36px;
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(255, 255, 255, 0.25),
+      transparent 60%),
+    linear-gradient(135deg,
+      rgba(72, 61, 255, 0.55),
+      rgba(0, 183, 255, 0.45),
+      rgba(0, 255, 209, 0.35));
+
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Soft floating glow */
+.leftPanel::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.35),
+      transparent 70%);
+  top: -60px;
+  right: -60px;
+  filter: blur(35px);
+  opacity: 0.6;
+
+}
+
+.illustrationImage {
+  width: 400px;
+  /* adjust as needed */
+  height: 400px;
+  /* keeps aspect ratio */
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-weight: bold;
+
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logoText {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Illustration */
+.illustration {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustrationCircle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(6px);
+}
+
+/* Tagline */
+.tagline {
+  margin-top: auto;
+  padding: 16px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: center;
+  color: white;
+}
+
+.tagline h2 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.tagline p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ===== RIGHT FORM PANEL ===== */
+.formPanel {
+  flex: 1.2;
+  padding: 40px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.form {
+  width: 100%;
+  max-width: 380px;
+  margin: auto;
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.formHeader h2 {
+  font-size: 28px;
+  color: #1a365d;
+  font-weight: 700;
+}
+
+.formHeader p {
+  color: #718096;
+  font-size: 14px;
+}
+
+/* Grid */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+/* ===== INPUTS (GLASS) ===== */
+.input,
+input[type="date"] {
+  width: 100%;
+  padding: 14px 16px;
+
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+
+  font-size: 14px;
+  color: #1a365d;
+
+  backdrop-filter: blur(10px);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input::placeholder {
+  color: #6b7280;
+}
+
+.input:focus,
+input[type="date"]:focus {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: #1e6fd9;
+
+  box-shadow:
+    0 0 0 4px rgba(30, 111, 217, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+/* ===== UPLOAD ===== */
+.uploadSection {
+  margin: 25px 0;
+}
+
+.uploadBox {
+  padding: 16px;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+
+  backdrop-filter: blur(12px);
+  transition: 0.2s;
+}
+
+.uploadBox:hover {
+  background: rgba(30, 111, 217, 0.15);
+}
+
+/* ===== BUTTON ===== */
+.submitButton {
+  width: 100%;
+  padding: 16px;
+  margin: 10px 0 25px;
+
+  background: linear-gradient(135deg,
+      rgba(30, 111, 217, 0.7),
+      rgba(10, 77, 166, 0.65));
+
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 30px rgba(30, 111, 217, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+
+  transition: 0.3s;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== LINKS ===== */
+.bottomLinks {
+  text-align: center;
+  font-size: 14px;
+  color: #718096;
+}
+
+.link {
+  color: #1e6fd9;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 850px) {
+  .wrapper {
+    flex-direction: column;
+    max-width: 450px;
+  }
+
+  .illustration {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== ANIMATION ===== */
+@keyframes glassGlow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 25px 70px rgba(0, 0, 0, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  }
+
+  50% {
+    box-shadow:
+      0 35px 90px rgba(0, 0, 0, 0.35),
+      inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  }
+}

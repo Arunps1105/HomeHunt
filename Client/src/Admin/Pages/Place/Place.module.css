@@ -1,0 +1,576 @@
+/* ================= PAGE LAYOUT ================= */
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  padding: 8px;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 290px;
+  padding: 72px 8px 8px 8px !important;
+  /* ← CHANGED: 72px top, 8px right, 8px bottom, 8px left */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: calc(100vh - 64px);
+  position: sticky;
+}
+
+/* Animated gradient border for main container */
+.mainContent::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  /* background: linear-gradient(45deg, 
+    #6366f1, #8b5cf6, #ec4899, 
+    #f59e0b, #10b981, #6366f1); */
+  background-size: 400% 400%;
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0.7;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ================= CREATE PLACE CARD ================= */
+.createPlaceCard {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow:
+    0 20px 50px rgba(99, 102, 241, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  flex-shrink: 0;
+  /* Don't shrink */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Gradient border */
+.createPlaceCard::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(135deg,
+      #6366f1 0%,
+      #8b5cf6 25%,
+      #ec4899 50%,
+      #f59e0b 75%,
+      #10b981 100%);
+  border-radius: 23px;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+/* Inner glow effect */
+.createPlaceCard::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.95) 100%);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+.cardContent {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.iconWrapper {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 10px 30px rgba(99, 102, 241, 0.4),
+    0 5px 15px rgba(139, 92, 246, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.iconWrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+}
+
+.cardTitle {
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 !important;
+  letter-spacing: 0.5px;
+  text-shadow: 0 4px 10px rgba(99, 102, 241, 0.1);
+}
+
+.cardSubtitle {
+  font-size: 16px !important;
+  color: #64748b !important;
+  margin-top: 8px !important;
+  font-weight: 500 !important;
+}
+
+.createForm {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 80px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.placeInput {
+  flex: 1;
+}
+
+.placeInput .MuiOutlinedInput-root {
+  border-radius: 16px !important;
+  height: 80px !important;
+  font-size: 18px !important;
+  background: rgba(248, 250, 252, 0.9);
+  border: 2px solid rgba(226, 232, 240, 0.8) !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(5px);
+}
+
+.placeInput .MuiOutlinedInput-root:hover {
+  border-color: #a5b4fc !important;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
+}
+
+.placeInput .MuiOutlinedInput-root.Mui-focused {
+  border-color: #6366f1 !important;
+  background: white;
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.2),
+    0 12px 30px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+.placeInput .MuiOutlinedInput-input {
+  padding: 24px 28px !important;
+  color: #334155 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  text-align: center;
+}
+
+.placeInput .MuiInputLabel-root {
+  font-size: 18px !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+}
+
+.placeInput .MuiInputLabel-shrink {
+  background: white;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-weight: 600 !important;
+}
+
+/* District Select Styling */
+.districtSelect {
+  flex: 1;
+}
+
+.districtSelect .MuiOutlinedInput-root {
+  border-radius: 16px !important;
+  height: 80px !important;
+  font-size: 18px !important;
+  background: rgba(248, 250, 252, 0.9);
+  border: 2px solid rgba(226, 232, 240, 0.8) !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(5px);
+}
+
+.districtSelect .MuiOutlinedInput-root:hover {
+  border-color: #a5b4fc !important;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
+}
+
+.districtSelect .MuiOutlinedInput-root.Mui-focused {
+  border-color: #6366f1 !important;
+  background: white;
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.2),
+    0 12px 30px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+.districtSelect .MuiSelect-select {
+  padding: 24px 28px !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: #334155 !important;
+}
+
+.districtSelect .MuiInputLabel-root {
+  font-size: 18px !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+}
+
+.districtSelect .MuiInputLabel-shrink {
+  background: white;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-weight: 600 !important;
+}
+
+.saveButton {
+  height: 60px !important;
+  /* Changed from 80px to match District button height */
+  min-width: 180px !important;
+  padding: 0 36px !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: white !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  box-shadow:
+    0 15px 35px rgba(99, 102, 241, 0.4),
+    0 5px 15px rgba(255, 255, 255, 0.2) inset !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: none !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.saveButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.7s;
+}
+
+.saveButton:hover::before {
+  left: 100%;
+}
+
+.saveButton:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px rgba(99, 102, 241, 0.5),
+    0 8px 20px rgba(255, 255, 255, 0.3) inset !important;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+}
+
+.saveButton:active {
+  transform: translateY(-1px);
+}
+
+.saveButton:disabled {
+  background: #cbd5e1 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  cursor: not-allowed !important;
+}
+
+/* ================= PLACE TABLE CARD ================= */
+.placeTableCard {
+  background: white;
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.08),
+    0 5px 15px rgba(99, 102, 241, 0.05);
+  border: 3px solid;
+  border-image: linear-gradient(135deg, #e2e8f0, #c7d2fe) 1;
+  min-height: 200px;
+  /* Changed from fixed height to min-height */
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Table header gradient */
+.placeTableCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+  border-radius: 20px 20px 0 0;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-top: 4px;
+}
+
+.tableTitle {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  margin: 0 !important;
+}
+
+.countBadge {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.tableContainer {
+  overflow: visible;
+  /* Changed from 'auto' to 'visible' - NO table scroll */
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  min-height: 50px;
+  /* Changed from fixed height to min-height */
+}
+
+.placeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeaderRow {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  height: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tableHeaderCell {
+  padding: 16px 24px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.tableHeaderCell:nth-child(1) {
+  width: 80px;
+  text-align: center;
+}
+
+.tableHeaderCell:nth-child(2) {
+  width: 40%;
+}
+
+.tableHeaderCell:nth-child(3) {
+  width: 30%;
+}
+
+.tableHeaderCell:nth-child(4) {
+  width: 30%;
+  text-align: center;
+}
+
+.tableRow {
+  border-bottom: 2px solid #f1f5f9;
+  height: 50px;
+  transition: all 0.2s ease;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background: #f8fafc;
+  transform: translateX(2px);
+}
+
+.tableCell {
+  padding: 16px 24px !important;
+  font-size: 15px !important;
+  color: #334155 !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.tableCell:nth-child(1) {
+  text-align: center;
+  font-weight: 700 !important;
+  color: #6366f1 !important;
+}
+
+.tableCell:nth-child(4) {
+  text-align: center;
+  color: #64748b !important;
+  font-size: 14px !important;
+}
+
+/* ================= EMPTY STATE ================= */
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emptyIcon {
+  font-size: 48px !important;
+  color: #cbd5e1;
+  margin-bottom: 16px !important;
+}
+
+.emptyText {
+  color: #64748b !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+.emptySubtext {
+  color: #94a3b8 !important;
+  font-size: 14px !important;
+}
+
+/* ================= FLOATING PARTICLES ================= */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 50%;
+  animation: float 15s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+  .mainContent {
+    margin-left: 0;
+    padding: 72px 8px 8px 8px !important;
+    margin: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .createPlaceCard {
+    padding: 28px 24px;
+  }
+
+  .createForm {
+    flex-direction: column;
+    height: auto;
+    gap: 16px;
+  }
+
+  .saveButton {
+    width: 100%;
+    min-width: 100% !important;
+    height: 60px !important;
+  }
+
+  .placeInput .MuiOutlinedInput-root,
+  .districtSelect .MuiOutlinedInput-root {
+    height: 70px !important;
+  }
+
+  .placeTableCard {
+    padding: 20px;
+  }
+
+  /* Mobile: Enable scrolling on main content */
+  .mainContent {
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,303 @@
+/* BACKGROUND */
+.background {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("/bg.jpg");
+  background-size: cover;
+  background-position: center;
+
+  padding-top: 90px;
+  /* space for navbar */
+  padding-bottom: 40px;
+}
+
+/* MAIN CARD */
+.wrapper {
+  width: 980px;
+  max-width: 95%;
+  min-height: 650px;
+
+  display: flex;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px) saturate(140%);
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 45px 90px rgba(0, 0, 0, 0.6);
+}
+
+
+/* LEFT PANEL */
+.leftPanel {
+  width: 40%;
+  padding: 55px;
+  background: linear-gradient(135deg,
+      rgba(99, 102, 241, 0.9),
+      rgba(34, 211, 238, 0.9));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.joinImage {
+  width: 220px;
+  margin-bottom: 28px;
+}
+
+.leftPanel h2 {
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+.leftPanel p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* RIGHT PANEL */
+.registercontainer {
+  width: 60%;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 28px;
+}
+
+/* ROW */
+.row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+/* FIELD (LABEL + INPUT) */
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 6px;
+  padding-left: 12px;
+}
+
+/* INPUT & SELECT */
+.input {
+  flex: 1;
+  height: 48px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  outline: none;
+  font-size: 14px;
+  backdrop-filter: blur(12px);
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.input:focus {
+  background: rgba(255, 255, 255, 0.32);
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.35);
+}
+
+/* ALTERNATIVE - More specific selectors */
+select.input {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 40px;
+  color: rgb(255, 255, 255);
+}
+
+/* Dropdown background */
+select.input option {
+  background: #1f2937;
+  color: white;
+  padding: 12px;
+}
+
+/* Selected option */
+select.input option:checked {
+  background: #2e7a3e;
+  color: white;
+}
+
+/* Hover effect */
+select.input option:hover {
+  background: #63acf1;
+}
+
+/* Focus state */
+select.input:focus option:checked {
+  background: #2b5dc9;
+  color: white;
+}
+
+/* DATE FIELD */
+.dateField {
+  height: 48px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(12px);
+}
+
+.dateField input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.dateField input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* FILE UPLOAD */
+.fileInput {
+  display: none;
+}
+
+.inputLike {
+  flex: 1;
+}
+
+.fileUpload {
+  height: 48px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(12px);
+  padding: 0 20px;
+}
+
+.fileText {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.fileUpload:hover {
+  background: linear-gradient(135deg,
+      rgba(59, 130, 246, 0.35),
+      rgba(99, 102, 241, 0.35));
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.45);
+}
+
+/* BUTTON */
+.button {
+  margin-top: 12px;
+  padding: 15px;
+  background: linear-gradient(135deg, #22d3ee, #6366f1);
+  color: white;
+  border: none;
+  border-radius: 34px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 22px 50px rgba(99, 102, 241, 0.65);
+  transition: all 0.35s ease;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 35px 75px rgba(99, 102, 241, 0.85);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .leftPanel,
+  .registercontainer {
+    width: 100%;
+  }
+
+  .leftPanel {
+    padding: 40px;
+  }
+
+  .registercontainer {
+    padding: 40px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .joinImage {
+    width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .leftPanel,
+  .registercontainer {
+    padding: 30px 25px;
+  }
+
+  .joinImage {
+    width: 150px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .leftPanel h2 {
+    font-size: 24px;
+  }
+}

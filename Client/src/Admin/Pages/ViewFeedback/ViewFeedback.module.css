@@ -1,0 +1,81 @@
+/* ===== MAIN CONTAINER ===== */
+.feedbackContainer {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 30px;
+  margin-left: 290px;
+  background: #ffffff;
+  border-radius: 14px;
+  margin-top: 70px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid;
+  border-image: linear-gradient(to right,
+      #6366f1,
+      #8b5cf6,
+      #ec4899) 1;
+}
+
+/* ===== PAGE TITLE ===== */
+.feedbackContainer h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #4f46e5;
+  margin-bottom: 25px;
+}
+
+/* ===== TABLE ===== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ===== TABLE HEADER ===== */
+.table thead {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+.table th {
+  padding: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ===== TABLE BODY ===== */
+.table td {
+  padding: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* ===== EMPTY ROW ===== */
+.table tbody tr td[colspan] {
+  padding: 20px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .feedbackContainer {
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+}

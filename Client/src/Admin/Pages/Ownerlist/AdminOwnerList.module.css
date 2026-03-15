@@ -1,0 +1,744 @@
+/* AdminOwnerList.module.css */
+
+/* ================= PAGE LAYOUT ================= */
+.adminOwnerContainer {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  padding: 8px;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 290px;
+  padding: 72px 8px 8px 8px !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: calc(100vh - 64px);
+  position: relative;
+}
+
+/* Animated gradient border for main container */
+.mainContent::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(135deg,
+      #6366f1 0%,
+      #8b5cf6 25%,
+      #ec4899 50%,
+      #f59e0b 75%,
+      #10b981 100%);
+  background-size: 400% 400%;
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0.7;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ================= USER MANAGEMENT CARD ================= */
+.userManagementCard {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 36px;
+  box-shadow:
+    0 20px 50px rgba(99, 102, 241, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+/* Gradient border */
+.userManagementCard::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(135deg,
+      #6366f1 0%,
+      #8b5cf6 25%,
+      #ec4899 50%,
+      #f59e0b 75%,
+      #10b981 100%);
+  border-radius: 23px;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+/* Inner glow effect */
+.userManagementCard::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.95) 100%);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+.cardContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  width: 100%;
+  text-align: center;
+}
+
+.iconWrapper {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 10px 30px rgba(99, 102, 241, 0.4),
+    0 5px 15px rgba(139, 92, 246, 0.3);
+  position: relative;
+  overflow: hidden;
+  font-size: 32px;
+}
+
+.iconWrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+}
+
+.cardTitle {
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 !important;
+  letter-spacing: 0.5px;
+  text-shadow: 0 4px 10px rgba(99, 102, 241, 0.1);
+}
+
+.cardSubtitle {
+  font-size: 16px !important;
+  color: #64748b !important;
+  margin-top: 8px !important;
+  font-weight: 500 !important;
+}
+
+/* ================= FILTER SECTION ================= */
+.filterSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 2px solid #e2e8f0;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filterGroup label {
+  font-weight: 600;
+  color: #475569;
+  font-size: 15px;
+}
+
+.filterSelect {
+  padding: 12px 40px 12px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  background-color: white;
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+  min-width: 200px;
+}
+
+.filterSelect:hover {
+  border-color: #a5b4fc;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+}
+
+.filterSelect:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.userCount {
+  color: #475569;
+  font-weight: 600;
+  font-size: 15px;
+  background: white;
+  padding: 8px 20px;
+  border-radius: 40px;
+  border: 2px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.countBadge {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+/* ================= TABLE CARD ================= */
+.tableCard {
+  background: white;
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.08),
+    0 5px 15px rgba(99, 102, 241, 0.05);
+  border: 3px solid;
+  border-image: linear-gradient(135deg, #e2e8f0, #c7d2fe) 1;
+  min-height: 400px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Table header gradient */
+.tableCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+  border-radius: 20px 20px 0 0;
+}
+
+/* ================= TABLE STYLES ================= */
+.tableContainer {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 2px solid #e2e8f0;
+  background: white;
+}
+
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+}
+
+.tableHeaderRow {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  height: 56px;
+}
+
+.tableHeaderRow th {
+  padding: 16px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+  border: none;
+}
+
+.tableHeaderRow th:first-child {
+  width: 60px;
+  text-align: center;
+  border-top-left-radius: 12px;
+}
+
+.tableHeaderRow th:nth-child(2) {
+  width: 20%;
+}
+
+.tableHeaderRow th:nth-child(3) {
+  width: 15%;
+}
+
+.tableHeaderRow th:nth-child(4) {
+  width: 25%;
+}
+
+.tableHeaderRow th:nth-child(5) {
+  width: 15%;
+}
+
+.tableHeaderRow th:last-child {
+  width: 15%;
+  text-align: center;
+  border-top-right-radius: 12px;
+}
+
+.tableRow {
+  border-bottom: 2px solid #f1f5f9;
+  height: 70px;
+  transition: all 0.2s ease;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.05) 0%, rgba(99, 102, 241, 0.02) 100%);
+  transform: translateX(2px);
+}
+
+.tableRow td {
+  padding: 16px 24px;
+  font-size: 15px;
+  color: #334155;
+  font-weight: 500;
+  border: none;
+}
+
+.tableRow td:first-child {
+  text-align: center;
+}
+
+.tableRow td:last-child {
+  text-align: center;
+}
+
+/* ================= INDEX BADGE ================= */
+.indexBadge {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+/* ================= USER INFO ================= */
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ================= STATUS BADGES ================= */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.statusActive {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.statusActive::before {
+  content: '●';
+  margin-right: 6px;
+  font-size: 12px;
+  color: #22c55e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.statusBlocked {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.statusBlocked::before {
+  content: '●';
+  margin-right: 6px;
+  font-size: 12px;
+  color: #ef4444;
+}
+
+.statusInactive {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.statusInactive::before {
+  content: '●';
+  margin-right: 6px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.actionButtons {
+  position: relative;
+  z-index: 10;
+}
+
+.actionBtn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.actionBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.actionBtn:hover::before {
+  left: 100%;
+}
+
+.blockBtn {
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.blockBtn:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+.activateBtn {
+  background: #10b981;
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.activateBtn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+.actionBtn:active {
+  transform: translateY(0);
+}
+
+/* ================= EMPTY STATE ================= */
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+}
+
+.emptyState::before {
+  content: '🏠';
+  display: block;
+  font-size: 56px;
+  color: #cbd5e1;
+  margin-bottom: 20px;
+}
+
+.emptyState::after {
+  content: 'No owners found matching your criteria';
+  display: block;
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: normal;
+  margin-top: 8px;
+}
+
+/* ================= FLOATING PARTICLES ================= */
+.mainContent {
+  position: relative;
+  overflow: hidden;
+}
+
+.mainContent::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: particleFloat 20s ease infinite;
+}
+
+/* 🔥 FIX: allow clicks to pass through decorative layers */
+.mainContent::before,
+.mainContent::after,
+.userManagementCard::before,
+.userManagementCard::after,
+.tableCard::before {
+  pointer-events: none;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+  .mainContent {
+    margin-left: 0;
+    padding: 72px 8px 8px 8px !important;
+    margin: 8px;
+  }
+}
+
+@media (max-width: 968px) {
+  .filterSection {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .filterGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterSelect {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .userCount {
+    justify-content: center;
+  }
+
+  .tableCard {
+    padding: 20px 16px;
+  }
+
+  .tableContainer {
+    overflow-x: auto;
+  }
+
+  .userTable {
+    min-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .userManagementCard {
+    padding: 24px 20px;
+  }
+
+  .cardTitle {
+    font-size: 24px !important;
+  }
+
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .cardSubtitle {
+    font-size: 14px !important;
+  }
+
+  .actionBtn {
+    padding: 8px 16px;
+    min-width: 80px;
+    font-size: 12px;
+  }
+
+  .tableRow td {
+    padding: 16px 12px;
+    font-size: 14px;
+  }
+
+  .statusBadge {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+
+  .userAvatar {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
+/* ================= PRINT STYLES ================= */
+@media print {
+
+  .mainContent::before,
+  .mainContent::after,
+  .userManagementCard::before,
+  .userManagementCard::after,
+  .tableCard::before {
+    display: none;
+  }
+
+  .adminOwnerContainer {
+    background: white;
+    padding: 0;
+  }
+
+  .mainContent {
+    margin: 0;
+    padding: 20px !important;
+  }
+
+  .filterSection,
+  .actionButtons {
+    display: none;
+  }
+
+  .userTable {
+    border: 1px solid #e2e8f0;
+  }
+
+  .tableHeaderRow {
+    background: #f1f5f9;
+    color: #1e293b;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .tableHeaderRow th {
+    color: #1e293b;
+  }
+}

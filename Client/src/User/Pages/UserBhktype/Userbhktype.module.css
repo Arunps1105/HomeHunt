@@ -1,0 +1,389 @@
+/* ================= PAGE LAYOUT ================= */
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  padding: 8px;
+}
+.mainContent {
+  flex: 1;
+  margin-left: 20px;
+  padding: 72px 8px 8px 8px !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: calc(100vh - 64px);
+  position: relative;
+}
+
+/* Animated gradient border for main container */
+.mainContent::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, 
+    #6366f1, #8b5cf6, #ec4899, 
+    #f59e0b, #10b981, #6366f1);
+  background-size: 400% 400%;
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0.7;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================= CREATE FLOOR TYPE CARD ================= */
+.createFloorTypeCard {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 
+    0 20px 50px rgba(99, 102, 241, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Gradient border */
+.createFloorTypeCard {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 
+    0 20px 50px rgba(99, 102, 241, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+/* Inner glow effect */
+.createFloorTypeCard::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(255, 255, 255, 0.95) 100%);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+.cardContent {
+  width: 100%;
+  max-width: 1800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.iconWrapper {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 10px 30px rgba(99, 102, 241, 0.4),
+    0 5px 15px rgba(139, 92, 246, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.iconWrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+}
+
+.cardTitle {
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 !important;
+  letter-spacing: 0.5px;
+  text-shadow: 0 4px 10px rgba(99, 102, 241, 0.1);
+}
+
+.cardSubtitle {
+  font-size: 16px !important;
+  color: #64748b !important;
+  margin-top: 8px !important;
+  font-weight: 500 !important;
+}
+
+.createForm {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 80px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.floorTypeInput {
+  flex: 1;
+  width: 100%;
+}
+
+.floorTypeInput .MuiOutlinedInput-root {
+  border-radius: 16px !important;
+  height: 80px !important;
+  font-size: 18px !important;
+  background: rgba(248, 250, 252, 0.9);
+  border: 2px solid rgba(226, 232, 240, 0.8) !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(5px);
+}
+
+.floorTypeInput .MuiOutlinedInput-root:hover {
+  border-color: #a5b4fc !important;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
+}
+
+.floorTypeInput .MuiOutlinedInput-root.Mui-focused {
+  border-color: #6366f1 !important;
+  background: white;
+  box-shadow: 
+    0 0 0 4px rgba(99, 102, 241, 0.2),
+    0 12px 30px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+.floorTypeInput .MuiOutlinedInput-input {
+  padding: 24px 28px !important;
+  color: #334155 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+}
+
+.saveButton {
+  height: 60px !important;
+  min-width: 180px !important;
+  padding: 0 36px !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: white !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  box-shadow: 
+    0 15px 35px rgba(99, 102, 241, 0.4),
+    0 5px 15px rgba(255, 255, 255, 0.2) inset !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: none !important;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(-5px) !important;
+}
+
+.saveButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.7s;
+}
+
+.saveButton:hover::before {
+  left: 100%;
+}
+
+.saveButton:hover {
+  transform: translateY(-9px) !important;
+  box-shadow: 
+    0 20px 40px rgba(99, 102, 241, 0.5),
+    0 8px 20px rgba(255, 255, 255, 0.3) inset !important;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+}
+
+.saveButton:active {
+  transform: translateY(-6px) !important;
+}
+
+.saveButton:disabled {
+  transform: translateY(0) !important;
+  background: #cbd5e1 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+}
+
+.cancelButton {
+  height: 60px !important;
+  min-width: 120px !important;
+  padding: 0 24px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 16px !important;
+  background: #e2e8f0 !important;
+  color: #475569 !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+
+.cancelButton:hover {
+  background: #cbd5e1 !important;
+  transform: translateY(-2px) !important;
+}
+
+.cancelButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.formActions {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ================= SNACKBAR STYLING ================= */
+.MuiAlert-filledSuccess {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25), 0 5px 15px rgba(0,0,0,0.15) !important;
+}
+
+.MuiAlert-filledError {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25), 0 5px 15px rgba(0,0,0,0.15) !important;
+}
+
+.MuiAlert-filledWarning {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25), 0 5px 15px rgba(0,0,0,0.15) !important;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+  .mainContent {
+    margin-left: 0;
+    padding: 72px 8px 8px 8px !important;
+    margin: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .createFloorTypeCard {
+    padding: 28px 24px;
+  }
+  
+  .createForm {
+    flex-direction: column;
+    height: auto;
+    gap: 16px;
+  }
+  
+  .formActions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .saveButton, .cancelButton {
+    width: 100%;
+    min-width: 100% !important;
+  }
+  
+  .floorTypeInput .MuiOutlinedInput-root {
+    height: 70px !important;
+  }
+  
+  .cardTitle {
+    font-size: 24px !important;
+  }
+  
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .iconWrapper svg {
+    font-size: 32px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 64px 4px 4px 4px !important;
+  }
+  
+  .createFloorTypeCard {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+  
+  .cardHeader {
+    margin-bottom: 24px;
+  }
+  
+  .cardSubtitle {
+    font-size: 14px !important;
+  }
+}

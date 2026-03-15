@@ -1,0 +1,159 @@
+/* ===== PAGE ===== */
+.page{
+  padding:30px;
+  margin-left:270px;
+  margin-top:80px;
+  min-height:100vh;
+  background:#f5f7fb;
+  box-sizing:border-box;
+}
+
+/* ===== CARD ===== */
+.card{
+  background:white;
+  border-radius:18px;
+  padding:30px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.06);
+  max-width:1200px;
+  margin:auto;
+  border-top:4px solid;
+  border-image:linear-gradient(to right,#6366f1,#8b5cf6,#ec4899) 1;
+}
+
+/* ===== HEADER ===== */
+.header{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.header h2{
+  font-size:26px;
+  font-weight:600;
+  color:#4f46e5;
+}
+
+.header p{
+  font-size:14px;
+  color:#64748b;
+  margin-top:5px;
+}
+
+/* ===== TABLE WRAPPER ===== */
+.tableWrap{
+  overflow-x:auto;
+  border-radius:12px;
+}
+
+/* ===== TABLE ===== */
+.table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+
+/* ===== TABLE HEADER ===== */
+.table thead{
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+}
+
+.table th{
+  padding:14px;
+  text-align:left;
+  color:white;
+  font-weight:600;
+}
+
+/* ===== TABLE BODY ===== */
+.table td{
+  padding:14px;
+  border-bottom:1px solid #e5e7eb;
+  vertical-align:top;
+}
+
+.table tbody tr:hover{
+  background:#f9fafb;
+}
+
+/* ===== TITLE ===== */
+.title{
+  font-weight:600;
+  color:#1e293b;
+}
+
+/* ===== DETAILS ===== */
+.details{
+  max-width:240px;
+  line-height:1.4;
+  color:#475569;
+}
+
+/* ===== REPLY BOX ===== */
+.replyBox{
+  width:100%;
+  min-height:45px;
+  border-radius:10px;
+  border:1px solid #cbd5e1;
+  padding:8px 12px;
+  font-size:13px;
+  resize:vertical;
+  transition:all .2s ease;
+}
+
+.replyBox:focus{
+  outline:none;
+  border-color:#6366f1;
+  box-shadow:0 0 0 3px rgba(99,102,241,0.1);
+}
+
+/* ===== REPLY TEXT ===== */
+.replyText{
+  background:#f1f5f9;
+  padding:8px 12px;
+  border-radius:8px;
+  font-size:13px;
+  display:inline-block;
+}
+
+/* ===== STATUS BADGES ===== */
+.status{
+  padding:6px 16px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.pending{
+  background:#fff7ed;
+  color:#c2410c;
+}
+
+.completed{
+  background:#ecfdf5;
+  color:#065f46;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  background:#4f46e5;
+  color:white;
+  border:none;
+  padding:8px 18px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:13px;
+  font-weight:500;
+  transition:.2s;
+}
+
+.btn:hover{
+  background:#4338ca;
+  transform:translateY(-1px);
+}
+
+/* ===== EMPTY STATE ===== */
+.table td[colspan]{
+  text-align:center;
+  padding:30px;
+  color:#6b7280;
+  font-style:italic;
+}
