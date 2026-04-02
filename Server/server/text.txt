@@ -1,0 +1,11 @@
+python manage.py shell
+from server.models import tbl_owner
+from django.contrib.auth.hashers import make_password
+
+owner = tbl_owner.objects.filter(owner_email="joyal@gmail.com").first()
+
+print(owner)   # check if exists
+owner.owner_password = make_password("123456")
+owner.save()
+
+print("Password updated")
